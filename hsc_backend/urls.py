@@ -16,7 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from hsc_backend.events.urls import router as events_router
+from hsc_backend.events.urls import urlpatterns as events_urls
+from hsc_backend.users.urls import urlpatterns as users_urls
 
 urlpatterns = [
     # admin
@@ -24,6 +25,9 @@ urlpatterns = [
     # auth
     path('auth/', include('django.contrib.auth.urls')),
 
-    # tag
-    path('', include(events_router.urls)),
+    # events app
+    path('', include(events_urls)),
+
+    # users app
+    path(r'', include(users_urls))
 ]

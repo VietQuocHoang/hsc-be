@@ -15,22 +15,22 @@ class TagViewset(viewsets.ModelViewSet):
     serializer_class = TagSerializer
 
     def list(self, request, *args, **kwargs):
-        return super(TagViewset, self).list(request, args, kwargs)
+        return super(TagViewset, self).list(request, *args,** kwargs)
 
     def create(self, request, *args, **kwargs):
-        return super(TagViewset, self).create(request, args, kwargs)
+        return super(TagViewset, self).create(request, *args,** kwargs)
 
     def retrieve(self, request, pk=None, *args, **kwargs):
-        return super(TagViewset, self).retrieve(request, pk, args, kwargs)
+        return super(TagViewset, self).retrieve(request, pk, *args,** kwargs)
 
     def update(self, request, pk=None, *args, **kwargs):
-        return super(TagViewset, self).update(request, pk, args, kwargs)
+        return super(TagViewset, self).update(request, pk, *args,** kwargs)
 
     def partial_update(self, request, pk=None, *args, **kwargs):
-        return super(TagViewset, self).partial_update(request, pk, args, kwargs)
+        return super(TagViewset, self).partial_update(request, pk, *args,** kwargs)
 
     def destroy(self, request, pk=None, *args, **kwargs):
-        return super(TagViewset, self).destroy(request, pk, args, kwargs)
+        return super(TagViewset, self).destroy(request, pk, *args,** kwargs)
 
     def get_queryset(self):
         queryset = Tag.objects.all()
@@ -38,25 +38,26 @@ class TagViewset(viewsets.ModelViewSet):
 
 
 class HostViewset(viewsets.ModelViewSet):
-    queryset = Host.objects.all()
+    permission_classes = (IsAuthenticated, )
+    queryset = Host.objects.filter(is_archive=False)
     serializer_class = HostSerializer
     filter_backends = (filter_rest_framework.DjangoFilterBackend, )
     filter_fields = ('name', )
 
     def list(self, request, *args, **kwargs):
-        return super(HostViewset, self).list(request, args, kwargs)
+        return super(HostViewset, self).list(request, *args,** kwargs)
 
     def create(self, request, *args, **kwargs):
-        return super(HostViewset, self).create(request, args, kwargs)
+        return super(HostViewset, self).create(request, *args,** kwargs)
 
     def retrieve(self, request, pk=None, *args, **kwargs):
-        return super(HostViewset, self).retrieve(request, pk, args, kwargs)
+        return super(HostViewset, self).retrieve(request, pk, *args,** kwargs)
 
     def update(self, request, pk=None, *args, **kwargs):
-        return super(HostViewset, self).update(request, pk, args, kwargs)
+        return super(HostViewset, self).update(request, pk, *args,** kwargs)
 
     def partial_update(self, request, pk=None, *args, **kwargs):
-        return super(HostViewset, self).partial_update(request, pk, args, kwargs)
+        return super(HostViewset, self).partial_update(request, pk, *args,** kwargs)
 
     def destroy(self, request, pk=None, *args, **kwargs):
         try:
@@ -68,23 +69,24 @@ class HostViewset(viewsets.ModelViewSet):
 
 
 class EventViewset(viewsets.ModelViewSet):
-    queryset = Event.objects.all()
+    permission_classes = (IsAuthenticated, )
+    queryset = Event.objects.filter(is_archive=False)
     serializer_class = EventSerializer
 
     def list(self, request, *args, **kwargs):
-        return super(EventViewset, self).list(request, args, kwargs)
+        return super(EventViewset, self).list(request, *args,** kwargs)
 
     def create(self, request, *args, **kwargs):
-        return super(EventViewset, self).create(request, args, kwargs)
+        return super(EventViewset, self).create(request, *args,** kwargs)
 
     def retrieve(self, request, pk=None, *args, **kwargs):
-        return super(EventViewset, self).retrieve(request, pk, args, kwargs)
+        return super(EventViewset, self).retrieve(request, pk, *args,** kwargs)
 
     def update(self, request, pk=None, *args, **kwargs):
-        return super(EventViewset, self).update(request, pk, args, kwargs)
+        return super(EventViewset, self).update(request, pk, *args,** kwargs)
 
     def partial_update(self, request, pk=None, *args, **kwargs):
-        return super(EventViewset, self).partial_update(request, pk, args, kwargs)
+        return super(EventViewset, self).partial_update(request, pk, *args,** kwargs)
 
     def destroy(self, request, pk=None, *args, **kwargs):
         try:
@@ -93,32 +95,46 @@ class EventViewset(viewsets.ModelViewSet):
         except Http404:
             pass
         return Response(status=status.HTTP_204_NO_CONTENT)
-    
+
+
 class SubscriberViewset(viewsets.ModelViewSet):
-    queryset = Subscriber.objects.all()
+    permission_classes = (IsAuthenticated, )
     serializer_class = SubscriberSerializer
 
-    def list(self, request, event_pk=None):
-        queryset = self.queryset.filter(event = event_pk)
-        serializer = SubscriberSerializer(queryset, many=True)
+    def get_queryset(self):
+        event_pk = self.kwargs['event_pk']
+        queryset = Subscriber.objects.none()
+        if event_pk:
+            queryset = Subscriber.objects.filter(event=event_pk, is_archive = False)
+        return queryset
+
+    def list(self, request, event_pk=None, *args, **kwargs):
+        return super(SubscriberViewset, self).list(request, *args,** kwargs)
+
+    def retrieve(self, request, pk=None, event_pk=None, *args, **kwargs):
+        return super(SubscriberViewset, self).retrieve(request, *args,** kwargs)
+
+    def create(self, request, event_pk=None, *args, **kwargs):
+        return super(SubscriberViewset, self).create(request, *args,** kwargs)
+
+    def update(self, request, event_pk=None, pk=None, *args, **kwargs):
+        partial = kwargs.pop('partial', False)
+        instance = self.get_object()
+        serializer = self.get_serializer(instance, data=request.data, partial=partial)
+        serializer.is_valid(raise_exception=True)
+        self.perform_update(serializer)
+
+        if getattr(instance, '_prefetched_objects_cache', None):
+            # If 'prefetch_related' has been applied to a queryset, we need to
+            # forcibly invalidate the prefetch cache on the instance.
+            instance._prefetched_objects_cache = {}
+
         return Response(serializer.data)
 
-    def retrieve(self, request, pk=None, event_pk=None):
-        queryset = self.queryset.get(pk=pk, event=event_pk)
-        serializer = SubscriberSerializer(queryset)
-        return Response(serializer.data)
+    def partial_update(self, request, event_pk=None, pk=None, *args, **kwargs):
+        return super(SubscriberViewset, self).partial_update(request, pk, *args,** kwargs)
 
-    def create(self, request, *args, **kwargs):
-        return super(SubscriberViewset, self).create(request, args, kwargs)
-
-
-    def update(self, request, pk=None, *args, **kwargs):
-        return super(SubscriberViewset, self).update(request, pk, args, kwargs)
-
-    def partial_update(self, request, pk=None, *args, **kwargs):
-        return super(SubscriberViewset, self).partial_update(request, pk, args, kwargs)
-
-    def destroy(self, request, pk=None, *args, **kwargs):
+    def destroy(self, request, event_pk=None, pk=None, *args, **kwargs):
         try:
             instance = self.get_object()
             instance.archive()

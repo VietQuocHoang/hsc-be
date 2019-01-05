@@ -30,6 +30,10 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'hsc_backend._base.paginations.BasePageNumberPagination',
+}
+
 THIRDPARTY_APPS = [
     # django_framework_
     'rest_framework',
@@ -43,7 +47,8 @@ THIRDPARTY_APPS = [
 
 CUSTOM_APPS = [
     'hsc_backend._base',
-    'hsc_backend.events'
+    'hsc_backend.events',
+    'hsc_backend.users'
 ]
 
 INSTALLED_APPS = [
