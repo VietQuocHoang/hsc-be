@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="01fbffe1-22f3-4d11-8a4a-2800bc3325ab" name="Default Changelist" comment="" />
+    <list default="true" id="01fbffe1-22f3-4d11-8a4a-2800bc3325ab" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -10,11 +12,18 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="250-social-links-in-detail-view" />
+      </map>
+    </option>
+    <option name="SET_USER_NAME_GLOBALLY" value="false" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="27" />
-    <option name="width" value="1366" />
-    <option name="height" value="741" />
+    <option name="x" value="-135" />
+    <option name="y" value="501" />
+    <option name="width" value="1356" />
+    <option name="height" value="555" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -40,7 +49,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546477833385" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546704999318" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -70,16 +79,28 @@
       <workItem from="1546477522438" duration="317000" />
       <workItem from="1546481071171" duration="319000" />
       <workItem from="1546482996465" duration="95000" />
+      <workItem from="1546522224184" duration="599000" />
+      <workItem from="1546568929048" duration="599000" />
+      <workItem from="1546577926863" duration="377000" />
+      <workItem from="1546699006991" duration="1113000" />
     </task>
+    <task id="LOCAL-00001" summary="- Add APIs:&#10; + Events&#10; + Hosts&#10; + Tags&#10; + Subscriber&#10; + User">
+      <created>1546704630172</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1546704630172</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="731000" />
+    <option name="totallyTimeSpent" value="3419000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1366" y="92" width="1366" height="741" extended-state="6" />
+    <frame x="0" y="435" width="1366" height="741" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25757575" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.37045455" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -94,10 +115,10 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49924242" visible="true" weight="0.3289256" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="11" side_tool="true" visible="true" weight="0.3289256" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="11" sideWeight="0.5007576" side_tool="true" visible="true" weight="0.3289256" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -111,6 +132,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="- Add APIs:&#10; + Events&#10; + Hosts&#10; + Tags&#10; + Subscriber&#10; + User" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Add APIs:&#10; + Events&#10; + Hosts&#10; + Tags&#10; + Subscriber&#10; + User" />
   </component>
   <component name="masterDetails">
     <states>

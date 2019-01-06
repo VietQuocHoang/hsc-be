@@ -19,15 +19,18 @@ from django.urls import path, include
 from hsc_backend.events.urls import urlpatterns as events_urls
 from hsc_backend.users.urls import urlpatterns as users_urls
 
+
 urlpatterns = [
     # admin
     path('admin/', admin.site.urls),
     # auth
     path('auth/', include('django.contrib.auth.urls')),
 
+
     # events app
-    path('', include(events_urls)),
+    path('', include(events_urls), name="events_comp"),
 
     # users app
-    path(r'', include(users_urls))
+    path(r'', include(users_urls), name="users_comp"),
+
 ]
