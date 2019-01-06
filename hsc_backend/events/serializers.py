@@ -1,6 +1,7 @@
 from rest_framework import serializers, validators
 from django.db.models import Q
 from .models import Tag, Host, Event, Subscriber
+from hsc_backend._base.constants import SubscriberChoice
 # Serializers go here
 
 
@@ -34,8 +35,8 @@ class SubscriberSerializer(serializers.ModelSerializer):
 
     first_name = serializers.CharField(max_length=50, required=True)
     last_name = serializers.CharField(max_length=50, default="")
-    gender = serializers.CharField(max_length=1, default="O")
-    status = serializers.CharField(max_length=1, default="P")
+    gender = serializers.ChoiceField(choices = SubscriberChoice.GENDER_CHOICES, default = "O")
+    status = serializers.ChoiceField(choices = SubscriberChoice.SUBSCRIBER_STATUS_CHOICES, default = "P")
 
     def validate_email(self, email):
         if email:
@@ -67,5 +68,5 @@ class SubscriberSerializer(serializers.ModelSerializer):
         model = Subscriber
         fields = (
             'pk', 'first_name', 'last_name', 'email', 'phone',
-            'event', 'gender', 'status', 'birthday'
+            'event', 'gender', 'status', 'birthday', 'address'
         )
