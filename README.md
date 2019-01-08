@@ -8,7 +8,7 @@
 
  - Python3 == 3.7.
  - PostgreSQL == 10.6.
- - (Optional) Virtualenv = 15.1.0. 
+ - (Optional) Virtualenv == 15.1.0. 
  - Pip.
 
 2. Installation.
