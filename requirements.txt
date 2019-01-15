@@ -22,3 +22,6 @@ phonenumbers==8.10.
 
 # https://github.com/alanjds/drf-nested-routers/
 drf-nested-routers==0.90.0
+
+# https://github.com/ottoyiu/django-cors-headers
+django-cors-headers==2.4.0
