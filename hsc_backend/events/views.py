@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import Http404
+from django.views.decorators.csrf import csrf_exempt
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
@@ -9,9 +10,9 @@ from .serializers import TagSerializer, HostSerializer, EventSerializer, Subscri
 
 # Create your views here.
 
-
+# @csrf_exempt
 class TagViewset(viewsets.ModelViewSet):
-    permission_classes = (IsAuthenticated, )
+    # permission_classes = (IsAuthenticated, )
     serializer_class = TagSerializer
 
     def list(self, request, *args, **kwargs):
@@ -37,8 +38,9 @@ class TagViewset(viewsets.ModelViewSet):
         return queryset
 
 
+# @csrf_exempt
 class HostViewset(viewsets.ModelViewSet):
-    permission_classes = (IsAuthenticated, )
+    # permission_classes = (IsAuthenticated, )
     queryset = Host.objects.filter(is_archive=False)
     serializer_class = HostSerializer
     filter_backends = (filter_rest_framework.DjangoFilterBackend, )
@@ -68,8 +70,9 @@ class HostViewset(viewsets.ModelViewSet):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
+# @csrf_exempt
 class EventViewset(viewsets.ModelViewSet):
-    permission_classes = (IsAuthenticated, )
+    # permission_classes = (IsAuthenticated, )
     queryset = Event.objects.filter(is_archive=False)
     serializer_class = EventSerializer
 
@@ -96,9 +99,9 @@ class EventViewset(viewsets.ModelViewSet):
             pass
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-
+# @csrf_exempt
 class SubscriberViewset(viewsets.ModelViewSet):
-    permission_classes = (IsAuthenticated, )
+    # permission_classes = (IsAuthenticated, )
     serializer_class = SubscriberSerializer
 
     def get_queryset(self):
