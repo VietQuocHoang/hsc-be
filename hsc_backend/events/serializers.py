@@ -20,14 +20,24 @@ class HostSerializer(serializers.ModelSerializer):
 class EventSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         event = Event.objects.create(**validated_data)
-
+        if 'image' in self.context['request'].data:
+            event.image = self.context['request'].data['image']
+            event.save()
         return event
+
+    def update(self, instance, validated_data):
+        instance = super(EventSerializer, self).update(instance, validated_data)
+
+        if 'image' in self.context['request'].data:
+            instance.image = self.context['request'].data['image']
+            instance.save()
+        return instance
 
     class Meta:
         model = Event
         fields = (
             'pk', 'name', 'description', 'date',
-            'host',
+            'host', 'image', 'short_description'
         )
 
 
@@ -35,8 +45,10 @@ class SubscriberSerializer(serializers.ModelSerializer):
 
     first_name = serializers.CharField(max_length=50, required=True)
     last_name = serializers.CharField(max_length=50, default="")
-    gender = serializers.ChoiceField(choices = SubscriberChoice.GENDER_CHOICES, default = "O")
-    status = serializers.ChoiceField(choices = SubscriberChoice.SUBSCRIBER_STATUS_CHOICES, default = "P")
+    gender = serializers.ChoiceField(
+        choices=SubscriberChoice.GENDER_CHOICES, default="O")
+    status = serializers.ChoiceField(
+        choices=SubscriberChoice.SUBSCRIBER_STATUS_CHOICES, default="P")
 
     def validate_email(self, email):
         if email:

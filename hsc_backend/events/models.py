@@ -56,6 +56,8 @@ class Event(BaseModel):
         Host, null=True, blank=True, on_delete=models.SET_NULL)
     tags = models.ManyToManyField(
         Tag, through='EventTag', related_name='tags_set')
+    image = models.ImageField(upload_to='events/%Y/%m/', null=True)
+    short_description = models.CharField(null=True, blank=True, max_length=255)
 
     def __str__(self):
         return self.name

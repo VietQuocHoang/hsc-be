@@ -7,7 +7,7 @@ from rest_framework.permissions import IsAuthenticated
 from django_filters import rest_framework as filter_rest_framework
 from .models import Tag, Host, Event, Subscriber
 from .serializers import TagSerializer, HostSerializer, EventSerializer, SubscriberSerializer
-
+import json
 # Create your views here.
 
 # @csrf_exempt
@@ -80,7 +80,12 @@ class EventViewset(viewsets.ModelViewSet):
         return super(EventViewset, self).list(request, *args,** kwargs)
 
     def create(self, request, *args, **kwargs):
-        return super(EventViewset, self).create(request, *args,** kwargs)
+        event_data = json.loads(request.data['event'])
+        serializer = self.get_serializer(data = event_data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
     def retrieve(self, request, pk=None, *args, **kwargs):
         return super(EventViewset, self).retrieve(request, pk, *args,** kwargs)
@@ -89,7 +94,20 @@ class EventViewset(viewsets.ModelViewSet):
         return super(EventViewset, self).update(request, pk, *args,** kwargs)
 
     def partial_update(self, request, pk=None, *args, **kwargs):
-        return super(EventViewset, self).partial_update(request, pk, *args,** kwargs)
+        instance = self.get_object()
+
+        event_data = json.loads(request.data['event'])
+        serializer = self.get_serializer(instance, data=event_data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        self.perform_update(serializer)
+
+        if getattr(instance, '_prefetched_objects_cache', None):
+            # If 'prefetch_related' has been applied to a queryset, we need to
+            # forcibly invalidate the prefetch cache on the instance.
+            instance._prefetched_objects_cache = {}
+
+        return Response(serializer.data)
+        
 
     def destroy(self, request, pk=None, *args, **kwargs):
         try:

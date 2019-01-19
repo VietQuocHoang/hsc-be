@@ -25,3 +25,6 @@ drf-nested-routers==0.90.0
 
 # https://github.com/ottoyiu/django-cors-headers
 django-cors-headers==2.4.0
+
+# https://github.com/python-pillow/Pillow
+Pillow==5.4.1
