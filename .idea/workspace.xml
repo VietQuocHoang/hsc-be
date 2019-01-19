@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="01fbffe1-22f3-4d11-8a4a-2800bc3325ab" name="Default Changelist" comment="">
+    <list default="true" id="01fbffe1-22f3-4d11-8a4a-2800bc3325ab" name="Default Changelist" comment="- Temporary disable">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -9,6 +9,28 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/requirements.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/hsc_backend/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="236">
+              <caret line="77" selection-start-line="77" selection-end-line="77" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -19,11 +41,19 @@
     </option>
     <option name="SET_USER_NAME_GLOBALLY" value="false" />
   </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/requirements.txt" />
+        <option value="$PROJECT_DIR$/hsc_backend/settings.py" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-135" />
-    <option name="y" value="501" />
+    <option name="x" value="-37" />
+    <option name="y" value="91" />
     <option name="width" value="1356" />
-    <option name="height" value="555" />
+    <option name="height" value="775" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -31,8 +61,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -40,19 +68,33 @@
               <item name="hsc_backend" type="b2602c69:ProjectViewProjectNode" />
               <item name="hsc_backend" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="hsc_backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hsc_backend" type="462c0819:PsiDirectoryNode" />
+              <item name="hsc_backend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hsc_backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hsc_backend" type="462c0819:PsiDirectoryNode" />
+              <item name="hsc_backend" type="462c0819:PsiDirectoryNode" />
+              <item name="events" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546704999318" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547886433921" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -67,7 +109,7 @@
     </option>
   </component>
   <component name="SvnConfiguration">
-    <configuration />
+    <configuration>$USER_HOME$/.subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -83,6 +125,11 @@
       <workItem from="1546568929048" duration="599000" />
       <workItem from="1546577926863" duration="377000" />
       <workItem from="1546699006991" duration="1113000" />
+      <workItem from="1546745723269" duration="1784000" />
+      <workItem from="1547571004495" duration="402000" />
+      <workItem from="1547571547776" duration="1919000" />
+      <workItem from="1547611372725" duration="42000" />
+      <workItem from="1547865191421" duration="1240000" />
     </task>
     <task id="LOCAL-00001" summary="- Add APIs:&#10; + Events&#10; + Hosts&#10; + Tags&#10; + Subscriber&#10; + User">
       <created>1546704630172</created>
@@ -91,16 +138,58 @@
       <option name="project" value="LOCAL" />
       <updated>1546704630172</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="- Add missing APIs:&#10;  + Users&#10;- Update README.md">
+      <created>1546746165921</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1546746165921</updated>
+    </task>
+    <task id="LOCAL-00003" summary="- Missing address on subscriber.">
+      <created>1546762420865</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1546762420865</updated>
+    </task>
+    <task id="LOCAL-00004" summary="- Temporary disable">
+      <created>1547571133410</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1547571133410</updated>
+    </task>
+    <task id="LOCAL-00005" summary="- Add COR Header">
+      <created>1547572252177</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1547572252177</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Allow">
+      <created>1547573287410</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1547573287410</updated>
+    </task>
+    <task id="LOCAL-00007" summary="- Add image fields &amp;&amp; short description to">
+      <created>1547867463861</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1547867463861</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3419000" />
+    <option name="totallyTimeSpent" value="8806000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="435" width="1366" height="741" extended-state="6" />
+    <frame x="0" y="27" width="1366" height="688" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.37045455" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.56060606" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -115,10 +204,10 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49924242" visible="true" weight="0.3289256" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49786553" visible="true" weight="0.36594203" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="11" sideWeight="0.5007576" side_tool="true" visible="true" weight="0.3289256" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50213444" side_tool="true" weight="0.22732362" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -135,7 +224,29 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="- Add APIs:&#10; + Events&#10; + Hosts&#10; + Tags&#10; + Subscriber&#10; + User" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Add APIs:&#10; + Events&#10; + Hosts&#10; + Tags&#10; + Subscriber&#10; + User" />
+    <MESSAGE value="- Add missing APIs:&#10;  + Users&#10;- Update README.md" />
+    <MESSAGE value="- Missing address on subscriber." />
+    <MESSAGE value="- Temporary disable" />
+    <MESSAGE value="- Add COR Header" />
+    <MESSAGE value="Allow" />
+    <MESSAGE value="- Add image fields &amp;&amp; short description to" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Add image fields &amp;&amp; short description to" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hsc_backend/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="77" selection-start-line="77" selection-end-line="77" />
+        </state>
+      </provider>
+    </entry>
   </component>
   <component name="masterDetails">
     <states>
