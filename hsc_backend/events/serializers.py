@@ -2,6 +2,7 @@ from rest_framework import serializers, validators
 from django.db.models import Q
 from .models import Tag, Host, Event, Subscriber
 from hsc_backend._base.constants import SubscriberChoice
+import json
 # Serializers go here
 
 
@@ -18,20 +19,38 @@ class HostSerializer(serializers.ModelSerializer):
 
 
 class EventSerializer(serializers.ModelSerializer):
-    host = HostSerializer()
+    host = HostSerializer(read_only = True)
+
     def create(self, validated_data):
         event = Event.objects.create(**validated_data)
         if 'image' in self.context['request'].data:
             event.image = self.context['request'].data['image']
-            event.save()
+        
+        event_data = json.loads(self.context['request'].data['event'])
+        host = None
+        if 'host' in event_data:
+            host_id = event_data['host']
+            host = Host.objects.filter(id=host_id, is_archive=False).first()
+        event.host = host
+            
+        event.save()
+
         return event
 
     def update(self, instance, validated_data):
-        instance = super(EventSerializer, self).update(instance, validated_data)
+        instance = super(EventSerializer, self).update(
+            instance, validated_data)
 
         if 'image' in self.context['request'].data:
             instance.image = self.context['request'].data['image']
-            instance.save()
+        
+        event_data = json.loads(self.context['request'].data['event'])
+        if 'host' in event_data:
+            host_id = event_data['host']
+            host = Host.objects.filter(id=host_id, is_archive=False).first()
+            instance.host = host
+
+        instance.save()
         return instance
 
     class Meta:
