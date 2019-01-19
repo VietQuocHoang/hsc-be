@@ -18,6 +18,7 @@ class HostSerializer(serializers.ModelSerializer):
 
 
 class EventSerializer(serializers.ModelSerializer):
+    host = HostSerializer()
     def create(self, validated_data):
         event = Event.objects.create(**validated_data)
         if 'image' in self.context['request'].data:

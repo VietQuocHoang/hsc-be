@@ -73,9 +73,12 @@ class HostViewset(viewsets.ModelViewSet):
 # @csrf_exempt
 class EventViewset(viewsets.ModelViewSet):
     # permission_classes = (IsAuthenticated, )
-    queryset = Event.objects.filter(is_archive=False)
+    
     serializer_class = EventSerializer
 
+    def get_queryset(self):
+        queryset = Event.objects.filter(is_archive=False)
+        return queryset
     def list(self, request, *args, **kwargs):
         return super(EventViewset, self).list(request, *args,** kwargs)
 
