@@ -4,6 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.parsers import MultiPartParser, JSONParser
 from django_filters import rest_framework as filter_rest_framework
 from .models import Tag, Host, Event, Subscriber
 from .serializers import TagSerializer, HostSerializer, EventSerializer, SubscriberSerializer
@@ -75,6 +76,7 @@ class EventViewset(viewsets.ModelViewSet):
     # permission_classes = (IsAuthenticated, )
     
     serializer_class = EventSerializer
+    parser_classes = (JSONParser, MultiPartParser, )
 
     def get_queryset(self):
         queryset = Event.objects.filter(is_archive=False)
