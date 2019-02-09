@@ -112,8 +112,8 @@ DATABASES = {
         'NAME': 'hscdb',
         'USER': 'root',
         'PASSWORD': '123456',
-        'HOST': 'localhost',
-        'PORT': '',
+        'HOST': 'db',
+        'PORT': '5432',
     }
 }
 

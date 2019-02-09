@@ -2,33 +2,25 @@
 
 
 ## Installation
-1. Prerequisite.
+1. Prerequisite
 
-    This section will be removed in the future.
-
- - Python3 == 3.7.
- - PostgreSQL == 10.6.
- - (Optional) Virtualenv == 15.1.0. 
- - Pip.
+ - Docker
+ - Docker compose
 
 2. Installation.
  - Install requirements using:
 ```bash
-    python3 -m pip install -r requirements.txt
-```
- - Migrate data:
-``` bash
-    python3 manage.py migrate
+   docker-compose build
 ```
  
  - Run server:
 ``` bash
-    python3 manage.py runserver
+   docker-compose up    
 ````
  - (Optional): Create superuser account with **username/password**: **admin/testing123** by using:
  
  ``` bash
-    python3 manage.py loaddata users
+    ./docker-django.sh loaddata users
  ```
 
  3. API Documentation
